@@ -4,7 +4,7 @@ const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 const isAndroid = /Android/.test(navigator.userAgent);
 
 if (isIOS) {
-  viewer.setAttribute('ar-modes', 'quick-look webxr');
+  viewer.setAttribute('ar-modes', 'webxr');
 } else if (isAndroid) {
   viewer.setAttribute('ar-modes', 'scene-viewer');
 }
