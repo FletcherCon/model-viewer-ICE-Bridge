@@ -1,3 +1,14 @@
+// Detect device and set appropriate AR modes
+const viewer = document.querySelector('model-viewer');
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+const isAndroid = /Android/.test(navigator.userAgent);
+
+if (isIOS) {
+  viewer.setAttribute('ar-modes', 'webxr quick-look');
+} else if (isAndroid) {
+  viewer.setAttribute('ar-modes', 'scene-viewer webxr');
+}
+
 // Handles loading the events for <model-viewer>'s slotted progress bar
 const onProgress = (event) => {
   const progressBar = event.target.querySelector('.progress-bar');
@@ -15,4 +26,4 @@ const onProgress = (event) => {
   }
 };
 
-document.querySelector('model-viewer').addEventListener('progress', o
+viewer.addEventListener('progress', onProgress);
